@@ -52,10 +52,10 @@ int partition(int *array, int first, int last, size_t size)
 		{
 			i++;
 			swap(&array[i], &array[j]);
-			print_array(array, size);
 		}
 	}
 	swap(&array[i + 1], &array[last]);
+	print_array(array, size);
 
 	return (i + 1);
 }
