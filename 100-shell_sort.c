@@ -1,59 +1,36 @@
 #include "sort.h"
-#include <stddef.h>
 
 /**
- * shell_sort - sorts an array of integers in ascending order
- * using the Shell sort algorithm, using the Knuth sequence
- * @array: List of array to be sorted
- * @size: Size of the array
- * Return: void
+ * shell_sort - Sorts an array of integers using shell_sort algorithm
+ * @array: array to be sorted
+ * @size: size of the array
+ * Return: Void
  */
 
 void shell_sort(int *array, size_t size)
 {
-	size_t gap = 1, x, swapped;
-	size_t i, j;
+	size_t gap = 1, i, j;
+	int temp;
 
 	if (size <= 1)
 		return;
-
 	while (gap < size / 3)
-	{
 		gap = gap * 3 + 1;
-	}
 
-	for (; gap >= 1; gap = (gap - 1) / 3)
+	while (gap > 0)
 	{
-		for (i = 0, j = gap; j < size; i++, j++)
+		for (i = gap; i < size; i++)
 		{
-			swapped = 0;
-			if (array[i] > array[j])
-				swap_sh(array, i, j, &swapped);
-			for (x = i; x >= gap && swapped == 1; x--)
+			temp = array[i];
+			j = i;
+			while (j >= gap && array[j - gap] > temp)
 			{
-				swapped = 0;
-				if (array[x - gap] > array[x])
-					swap_sh(array, (x - gap), x, &swapped);
+				array[j] = array[j - gap];
+				j -= gap;
 			}
+			array[j] = temp;
 		}
 		print_array(array, size);
+		gap /= 3;
 	}
-}
-
-/**
- * swap_sh - Swaps elements of an array of two given indexes
- * @arr: Array to swap elements from
- * @x: index 1
- * @y: index 2
- * @swapped: Flag to control backward sorting in the shell sort function
- *  Return: void
- */
-
-void swap_sh(int *arr, size_t x, size_t y, size_t *swapped)
-{
-	int tmp = arr[x];
-
-	arr[x] = arr[y];
-	arr[y] = tmp;
-	*swapped = 1;
 }
