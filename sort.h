@@ -38,6 +38,5 @@ void merge(size_t l, size_t m, size_t r, int *dest, int *org);
 void merge_recrusion(size_t l, size_t r, int *a, int *cpy_arr);
 void merge_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
-void print_sort(int *count, int max);
 
 #endif

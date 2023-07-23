@@ -1,25 +1,6 @@
 #include "sort.h"
 
 /**
- * print_sort - Print count
- * @count: count
- * @max: size of count
- * Return: void
- */
-void print_sort(int *count, int max)
-{
-	int i;
-
-	for (i = 0; i <= max; i++)
-	{
-		if (i > 0)
-			printf(", ");
-		printf("%d", count[i]);
-	}
-	printf("\n");
-}
-
-/**
  * counting_sort - a function that sorts an array of
  * integers in ascending order using the Counting sort algorithm
  * @array: List of array to be sorted
@@ -29,7 +10,7 @@ void print_sort(int *count, int max)
 
 void counting_sort(int *array, size_t size)
 {
-	int max, i, j, *sorted, *count;
+	int max, i, *sorted, *count;
 
 	if (size <= 1)
 		return;
@@ -47,7 +28,7 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 1; i <= max; i++)
 		count[i] += count[i - 1];
-	print_sort(count, max);
+	print_array(count, max + 1);
 
 	sorted = malloc(sizeof(int) * size);
 	if (!sorted)
