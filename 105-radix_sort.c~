@@ -1,11 +1,11 @@
 #include "sort.h"
 /**
- * pow_10 - calculates a positive power of 10
- * @p: power of 10
- * Return: result
- **/
- unsigned int pow_10(unsigned int p)
- {
+* pow_10 - calculates a positive power of 10
+* @p: power of 10
+* Return: result
+**/
+unsigned int pow_10(unsigned int p)
+{
 	unsigned int n, r;
 	r = 1;
 	for (n = 0; n < p; n++)
@@ -13,14 +13,14 @@
 	return (r);
 }
 /**
- * cs -  sorts an array of integers in ascending order
- * @a: array to be sorted
- * @s: size
- * @d: digit
- * Return: 1 if we need to keep sorting
- **/
- unsigned int cs(int *a, size_t s, int d)
- {
+* cs -  sorts an array of integers in ascending order
+* @a: array to be sorted
+* @s: size
+* @d: digit
+* Return: 1 if we need to keep sorting
+**/
+unsigned int cs(int *a, size_t s, int d)
+{
 	int i, count[10] = {0};
 	int *cpy = NULL;
 	size_t j, temp, total = 0;
@@ -33,9 +33,9 @@
 		exit(1);
 	for (j = 0; j < s; j++)
 	{
-		cpy[j] = a[j];
-		if (a[j] / d1 != 0)
-			sort = 1;
+	cpy[j] = a[j];
+	if (a[j] / d1 != 0)
+		sort = 1;
 	}
 	for (i = 0; i < 10; i++)
 		count[i] = 0;
@@ -56,19 +56,19 @@
 	return (sort);
 }
 /**
- * radix_sort - sorts an array of integers in ascending
- * @array: array to be sorted
- * @size: length of the array
- **/
- void radix_sort(int *array, size_t size)
- {
+* radix_sort - sorts an array of integers in ascending
+* @array: array to be sorted
+* @size: length of the array
+**/
+void radix_sort(int *array, size_t size)
+{
 	unsigned int i, sort = 1;
 
 	if (array == NULL || size < 2)
 		return;
 	for (i = 1; sort == 1; i++)
 	{
-		sort = cs(array, size, i);
-		print_array(array, size);
+	sort = cs(array, size, i);
+	print_array(array, size);
 	}
 }

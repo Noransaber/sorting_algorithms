@@ -6,11 +6,13 @@
 **/
 unsigned int pow_10(unsigned int p)
 {
-unsigned int n, r;
-r = 1;
-for (n = 0; n < p; n++)
-r *= 10;
-return (r);
+	unsigned int n, r;
+
+	r = 1;
+
+	for (n = 0; n < p; n++)
+		r *= 10;
+	return (r);
 }
 /**
 * cs -  sorts an array of integers in ascending order
@@ -21,39 +23,39 @@ return (r);
 **/
 unsigned int cs(int *a, size_t s, int d)
 {
-int i, count[10] = {0};
-int *cpy = NULL;
-size_t j, temp, total = 0;
-unsigned int d1, d2, sort = 0;
+	int i, count[10] = {0};
+	int *cpy = NULL;
+	size_t j, temp, total = 0;
+	unsigned int d1, d2, sort = 0;
 
-d2 = pow_10(d - 1);
-d1 = d2 * 10;
-cpy = malloc(sizeof(int) * s);
-if (cpy == NULL)
-exit(1);
-for (j = 0; j < s; j++)
-{
-cpy[j] = a[j];
-if (a[j] / d1 != 0)
-sort = 1;
-}
-for (i = 0; i < 10; i++)
-count[i] = 0;
-for (j = 0; j < s; j++)
-count[(a[j] % d1) / d2] += 1;
-for (i = 0; i < 10; i++)
-{
-temp = count[i];
-count[i] = total;
-total += temp;
-}
-for (j = 0; j < s; j++)
-{
-a[count[(cpy[j] % d1) / d2]] = cpy[j];
-count[(cpy[j] % d1) / d2] += 1;
-}
-free(cpy);
-return (sort);
+	d2 = pow_10(d - 1);
+	d1 = d2 * 10;
+	cpy = malloc(sizeof(int) * s);
+	if (cpy == NULL)
+		exit(1);
+	for (j = 0; j < s; j++)
+	{
+	cpy[j] = a[j];
+	if (a[j] / d1 != 0)
+		sort = 1;
+	}
+	for (i = 0; i < 10; i++)
+		count[i] = 0;
+	for (j = 0; j < s; j++)
+		count[(a[j] % d1) / d2] += 1;
+	for (i = 0; i < 10; i++)
+	{
+		temp = count[i];
+		count[i] = total;
+		total += temp;
+	}
+	for (j = 0; j < s; j++)
+	{
+		a[count[(cpy[j] % d1) / d2]] = cpy[j];
+		count[(cpy[j] % d1) / d2] += 1;
+	}
+	free(cpy);
+	return (sort);
 }
 /**
 * radix_sort - sorts an array of integers in ascending
@@ -62,13 +64,13 @@ return (sort);
 **/
 void radix_sort(int *array, size_t size)
 {
-unsigned int i, sort = 1;
+	unsigned int i, sort = 1;
 
-if (array == NULL || size < 2)
-return;
-for (i = 1; sort == 1; i++)
-{
-sort = cs(array, size, i);
-print_array(array, size);
-}
+	if (array == NULL || size < 2)
+		return;
+	for (i = 1; sort == 1; i++)
+	{
+	sort = cs(array, size, i);
+	print_array(array, size);
+	}
 }
