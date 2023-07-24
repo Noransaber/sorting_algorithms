@@ -14,7 +14,7 @@ void quick_sort_hoare(int *array, size_t size)
 }
 
 /**
- * quicksort_recursion_h - it's sorting the array recursiovely
+ * quicksort_recursion - it's sorting the array recursiovely
  * @array: the array to bes sorted
  * @first: first(lowest) element(idx) in the array
  * @last: Last element of the array (highest)
@@ -33,8 +33,8 @@ void quicksort_recursion_h(int *array, int first, int last, size_t size)
 	}
 }
 /**
- * partition_h - to divie our list
- * @a: Our array to be sorted
+ * partition - to divie our list
+ * @array: Our array to be sorted
  * @first: first elem of the array
  * @last: last ele of the array
  * @size: The length of the array
