@@ -14,14 +14,14 @@ void quick_sort_hoare(int *array, size_t size)
 }
 
 /**
- * quicksort_recursion - it's sorting the array recursiovely
+ * quicksort_recursion_h - it's sorting the array recursiovely
  * @array: the array to bes sorted
  * @first: first(lowest) element(idx) in the array
  * @last: Last element of the array (highest)
  * @size: The length of the array
  * Return: Nothing
  **/
-void quicksort_recursion_h(int *array, int first, int last, size_t size)
+void quicksort_recursion(int *array, int first, int last, size_t size)
 {
 	int pivot_index;
 
