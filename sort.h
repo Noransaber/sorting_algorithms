@@ -41,4 +41,8 @@ void counting_sort(int *array, size_t size);
 size_t partition_h(int *a, size_t first, size_t last, size_t size);
 void quicksort_recursion_h(int *array, int first, int last, size_t size);
 void quick_sort_hoare(int *array, size_t size);
+void heap_sort(int *array, size_t size);
+void sortify(int *array, int heap, int i, int size);
+
+
 #endif
